@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+        <ul class="navbar-nav">
+            <img height="40px" src="./static/logo.png" alt="logo" style="width:50px;">
+            <li class="nav-item">
+                <a class="nav-link" href="mailto:support@co-19policy.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> support@co-19policy.com</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-phone" aria-hidden="true"></i> 0124 4092900</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="progress" style="height:5px">
+        <div class="progress-bar" style="width:100%"></div>
+    </div>
+    <br>
+<div class="container">
+    <div class="row">
+            <div class="col-sm-3"><div class="form-group">
+                <label>Sum Insured *</label>
+                <select class="form-control validate[required]" data-val="true"
+                    data-val-number="The field SumInsuredID must be a number." id="ddlSumInsured" name="SumInsuredID"
+                    title="Sum Insured">
+                    <option value="">Sum Insured</option>
+                    <option value="30">25000</option>
+                    <option value="31">100000</option>
+                    <option value="32">200000</option>
+                    <option value="33">50000</option>
+                </select>
+            </div></div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Plan</label>
+                    <select class="form-control validate[required]" data-val="true" data-val-number="The field PlanID must be a number."
+                        id="ddlPlan" name="PlanID" title="Plan">
+                        <option value="">Plan</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Diagnosis Cover</label>
+                <select class="form-control" disabled="disabled" id="ddlDiagnosisCover" name="DiagnosisCover">
+                    <option value="1">Yes</option>
+                </select>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label>Quarantine Cover</label>
+                    <select class="form-control" disabled="disabled" id="ddlPrimaryCover" name="PrimaryCover">
+                        <option value="">Quarantine Cover</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Travel Excl Cover</label>
+            
+                    </div>
+                    <select class="form-control" disabled="disabled" id="ddlSecondaryCover" name="SecondaryCover">
+                        <option value="">Travel Excl Cover</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Any Pre-Existing Disease ?</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <select class="form-control" data-val="true" data-val-number="The field PreExDisease must be a number."
+                        id="ddlPreExDisease" name="PreExDisease" title="No">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+            </div>
+    </div>
+</div>
+<nav class="navbar navbar-light" style="background-image: linear-gradient(rgb(0, 195, 255), rgb(255, 252, 48))">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h4>Plan details</h4>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+        <div class="row no-padding">
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Plan Amount</label>
+                    </div>
+                    <input type="text" class="form-control" id="txtPlanAmount" readonly="" title="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>GST Amount</label>
+                    </div>
+                    <input name="" type="text" class="form-control" id="txtGSTAmount" readonly="" title="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Total Plan Amount</label>
+                    </div>
+                    <input type="text" class="form-control" id="txtTotalPlanAmount" readonly="" title="">
+                </div>
+            </div>
+        </div>
+
+        <div class="row no-padding">
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Certificate Start Date</label>
+
+                    </div>
+
+                    <input class="form-control removeBackgroundcolor" data-val="true"
+                        data-val-date="The field CoverStartDate must be a date."
+                        data-val-required="The CoverStartDate field is required." id="txtCoverStartDate"
+                        name="CoverStartDate" readonly="readonly" type="text" value="24/04/2020" title="24/04/2020">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Certificate End Date</label>
+
+                    </div>
+                    <input class="form-control" data-val="true" data-val-date="The field CoverEndDate must be a date."
+                        id="txtCoverEndDate" name="CoverEndDate" readonly="readonly" type="text" value="" title="">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Certificate Issue Date</label>
+
+                    </div>
+                    <input data-val="true" data-val-number="The field IssueByID must be a number."
+                        data-val-required="The IssueByID field is required." id="IssueByID" name="IssueByID"
+                        type="hidden" value="10">
+                    <input type="text" value="24/04/2020" class="form-control" id="txtissuedate" readonly=""
+                        title="24/04/2020">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Balance Amount</label>
+                    </div>
+                    <input class="form-control" data-val="true"
+                        data-val-number="The field TotalFloatPlanAmount must be a number." id="txtTotalFloatPlanAmount"
+                        name="TotalFloatPlanAmount" readonly="readonly" type="hidden" value="0">
+                    <input class="form-control" data-val="true"
+                        data-val-number="The field TotalUsedPlanAmount must be a number."
+                        data-val-required="The TotalUsedPlanAmount field is required." id="txtTotalUsedPlanAmount"
+                        name="TotalUsedPlanAmount" readonly="readonly" type="hidden" value="9440.00">
+                    <input class="form-control" data-val="true"
+                        data-val-number="The field TotalBalanceAmount must be a number." id="txtTotalBalanceAmount"
+                        name="TotalBalanceAmount" readonly="readonly" type="text" value="0">
+                    <input class="form-control" id="hdnPACoverStartDate" name="PACoverStartDate" readonly="readonly"
+                        type="hidden" value="">
+                </div>
+            </div>
+        </div>
+
+    </div>
+<nav class="navbar navbar-light" style="background-image: linear-gradient(rgb(0, 195, 255), rgb(255, 252, 48))">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h4>Customer details</h4>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+        <div class="row no-padding">
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>First Name</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input class="form-control validate[required]  validate[custom[name]]" id="txtCustomerName"
+                        maxlength="25" name="CustomerName" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Middle Name</label>
+
+                    </div>
+                    <input class="form-control validate[custom[name]]" id="txtCustomerMiddleName" maxlength="25"
+                        name="CustomerMiddleName" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Last Name</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input class="form-control validate[required] validate[custom[name]]" id="txtCustomerLastName"
+                        maxlength="25" name="CustomerLastName" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Email ID</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input class="form-control validate[required] validate[custom[email]] maxSize[50]"
+                        id="txtCustomerEmail" maxlength="50" name="CustomerEmail" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Mobile No</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input
+                        class="form-control allow_only_numbers validate[required] validate[custom[integer],maxSize[10],minSize[10],custom[sumIsZero]] "
+                        id="txtCustomerContact" maxlength="10" name="CustomerContact" type="text" value="" title="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Insured Gender</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <select class="form-control validate[required]" data-val="true"
+                        data-val-number="The field InsuredGenderId must be a number." id="ddlInsuredGender"
+                        name="InsuredGenderId">
+                        <option value="">Insured Gender</option>
+                        <option value="18">Male</option>
+                        <option value="19">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Insured DOB</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input class="form-control removeBackgroundcolor validate[required]" data-val="true"
+                        data-val-date="The field InsuredDOB must be a date." id="txtInsureDOB" name="InsuredDOB"
+                        readonly="readonly" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Nominee Name</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <input class="form-control validate[required]" id="txtNomineeName" maxlength="25" name="NomineeName"
+                        type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Nominee Gender</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <select class="form-control validate[required]" data-val="true"
+                        data-val-number="The field NomineeGenderId must be a number." id="ddlNomineeGender"
+                        name="NomineeGenderId">
+                        <option value="">Nominee Gender</option>
+                        <option value="21">Male</option>
+                        <option value="22">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Nominee DOB</label>
+
+                    </div>
+                    <input class="form-control removeBackgroundcolor " data-val="true"
+                        data-val-date="The field NomineeDOB must be a date." id="txtNomineeDOB" name="NomineeDOB"
+                        readonly="readonly" type="text" value="">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Nominee Relationship</label>
+                        <span class="mandatory">*</span>
+                    </div>
+                    <select class="form-control validate[required]" data-val="true"
+                        data-val-number="The field NomineeRelationshipId must be a number." id="ddlNomineeRelationship"
+                        name="NomineeRelationshipId" title="Nominee Relationship">
+                        <option value="">Nominee Relationship</option>
+                        <option value="24">Father</option>
+                        <option value="25">Mother</option>
+                        <option value="26">Other</option>
+                        <option value="27">Son</option>
+                        <option value="28">Spouse</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label><span>&nbsp;</span></label>
+                <div class="form-group">
+                    <div>
+                        <label>Customer GSTIN Number</label>
+
+                    </div>
+                    <input class="form-control " id="txtGSTINNumber" maxlength="25" name="GSTINNumber" type="text"
+                        value="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<nav class="navbar navbar-light" style="background-image: linear-gradient(rgb(0, 195, 255), rgb(255, 252, 48))">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <h4>Permanent Addresss</h4>
+        </li>
+    </ul>
+</nav>
+    <div class="container">
+            <div class="row no-padding">
+                
+                <div class="col-md-6">
+                    <form action="/" method="post" id="post-form">
+                        {% csrf_token %}
+                    <label><span>&nbsp;</span></label>
+                    <div class="form-group">
+                        <div>
+                            <label>State</label>
+                            <span class="mandatory">*</span>
+                        </div>
+                        <select class="form-control validate[required]" data-val="true"
+                            data-val-number="The field PermanentStateID must be a number." id="ddlPermanentState"
+                            name="PermanentStateID">
+                            <option value="">State</option>
+                            <option value="1">ANDAMAN and NICOBAR</option>
+                            <option value="2">ANDHRA PRADESH</option>
+                            <option value="3">ARUNACHAL PRADESH</option>
+                            <option value="4">ASSAM</option>
+                            <option value="5">BIHAR</option>
+                            <option value="6">CHANDIGARH</option>
+                            <option value="7">CHHATTISGARH</option>
+                            <option value="8">DADAR and NAGARA HAVELI</option>
+                            <option value="9">DAMAN and DIU</option>
+                            <option value="10">DELHI</option>
+                            <option value="11">GOA</option>
+                            <option value="12">GUJARAT</option>
+                            <option value="15">HARYANA</option>
+                            <option value="16">HIMACHAL PRADESH</option>
+                            <option value="17">JAMMU and KASHMIR</option>
+                            <option value="18">JHARKHAND</option>
+                            <option value="19">KARNATAKA</option>
+                            <option value="20">KERALA</option>
+                            <option value="21">LAKSHADWEEP</option>
+                            <option value="22">MADHYA PRADESH</option>
+                            <option value="23">MAHARASHTRA</option>
+                            <option value="24">MANIPUR</option>
+                            <option value="25">MEGHALAYA</option>
+                            <option value="26">MIZORAM</option>
+                            <option value="27">NAGALAND</option>
+                            <option value="29">ORISSA</option>
+                            <option value="30">PONDICHERRY</option>
+                            <option value="31">PUNJAB</option>
+                            <option value="32">RAJASTHAN</option>
+                            <option value="34">SIKKIM</option>
+                            <option value="35">TAMIL NADU</option>
+                            <option value="37">TELANGANA</option>
+                            <option value="38">TRIPURA</option>
+                            <option value="39">UTTAR PRADESH</option>
+                            <option value="40">UTTARAKHAND</option>
+                            <option value="41">WEST BENGAL</option>
+                            <option value="42">ODISHA</option>
+                            <option value="43">ODISHA RENAME</option>
+                            <option value="44">Uttrakhand</option>
+                            <option value="45">RAIGAD</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <label><span>&nbsp;</span></label>
+                    <div class="form-group">
+                        <div>
+                            <label>City</label>
+                            <span class="mandatory">*</span>
+                        </div>
+                        <input type="text" class="form-control" id="usr">
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <label><span>&nbsp;</span></label>
+                    <div class="form-group">
+                        <div>
+                            <label>Address1</label>
+                            <span class="mandatory">*</span>
+                        </div>
+                        <textarea class="form-control validate[required]" cols="20" id="txtPermanentAddress" maxlength="100"
+                            name="PermanentAddress" rows="2"></textarea>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <label><span>&nbsp;</span></label>
+                    <div class="form-group">
+                        <div>
+                            <label>Address2</label>
+    
+                        </div>
+                        <textarea class="form-control" cols="20" id="txtPermanentAddress2" maxlength="100"
+                            name="PermanentAddress2" rows="2"></textarea>
+                    </div>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-primary mx-auto">Submit</button>
+                </form>
+            </div>
+        
+        </div>
+    </div>
+
+<br>
+<div class="progress" style="height:5px">
+    <div class="progress-bar" style="width:100%"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 form-group text-left" style="font-size:11px;">
+            I hereby confirm that,
+            <br>
+            1. Neither me nor my any family member or close associate is suffering from COVID19 or quarantined/I or we have not
+            met any COVID 19 affected person in last 15 days
+            <br>
+            2. I am not living with and sharing the same address as that of person(s) who is/were Diagnosed with COVID- 19 or
+            Quarantined
+            <br>
+            3. Have Not travelled to international destination in 45 day immediately preceding the Certificate Period Start Date
+            (This is not applicable for Platinum cover)
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+<script>
+    $('#post-form').on('submit', function (event) {
+            event.preventDefault();
+            console.log("form submitted!")  // sanity check
+            create_post();
+            function create_post() {
+            console.log("create post is working!") // sanity check
+            $.ajax({
+                headers: { 'X-CSRFToken': '{{ csrf_token }}' },
+                url: "", // the endpoint
+                type: "POST",
+                data: { the_post: $('#post-text').val() }, 
+                success: function (json) {
+                   // $('#post-text').val(''); // remove the value from the input
+                   // console.log(json); // log the returned json to the console
+                    console.log("success"); // another sanity check
+                },
+                error: function (xhr, errmsg, err) {
+                    $('#results').html("<div class='alert-box alert radius' data-alert>Oops! We have encountered an error: " + errmsg +
+                        " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                    console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                }
+            });
+        };
+        });
+</script>
+</html>

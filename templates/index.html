@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Assure</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .dataTables_scroll {
+            overflow: auto;
+        }
+        .datatableGrid th {
+            background-color: #169CD9 !important;
+            color: #fff;
+        }
+
+        .alert {
+            width: 98% !important;
+            margin: 0;
+        }
+
+        .form-group {
+            margin-bottom: 0px !important;
+        }
+
+        .panel-heading {
+            /*background-image: linear-gradient(to bottom, #00529C 0%, #e8e8e8 100%);*/
+            background-image: linear-gradient(to bottom, #32419c 50%, #f15b29 70%);
+            /*background-color:#32419c !important;*/
+            padding: 3px !important;
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:#32419c !important">
+        <div>
+            <img style="width: 7%;" src="/Image/Logo.jpeg" />
+            <span> <i class="glyphicon glyphicon-envelope"></i> &nbsp;support@globalassure.com&nbsp;&nbsp;</span>
+            <span><i class="glyphicon glyphicon-earphone"></i> &nbsp;0124 4092900&nbsp;&nbsp;</span>
+            <span style="padding:15px 0; padding-right: 30px; float:right;"><i
+                    class="glyphicon glyphicon-user"></i>&nbsp;<span id="spnLoginUser"></span></span>
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="container body-content" style="margin: 0;max-width: 100%;padding:0;">
+
+        <div id="LoadingImage"
+            style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001; opacity: .8; filter: alpha(opacity=70); display: none">
+            <p style="position: absolute; top: 40%; left: 45%; color: White;">
+                Loading, please wait...<img src="/Image/ajax_loader_blue_512.gif" height="40" width="40">
+            </p>
+        </div>
+
+
+
+
+        <link href="/Content/selectwithsearch.css" rel="stylesheet" />
+        <script src="/Scripts/selectwithsearch.js"></script>
+
+        <style>
+            .select2-container .select2-selection--single {
+                height: 34px !important;
+            }
+        </style>
+
+        <form Id="TransactionForm" action="/" method="post">
+            <h2 class="main-title text-center" style="color:#716f6f !important">Covid Issue Certificate</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="active-class" style="color:white"><img src="/Image/Site/Forma 1.png" />&nbsp;&nbsp;
+                        Product Details</p>
+                </div>
+                <div class="width-100 panel-body" style="background-color: #fff">
+                    <div style="margin:5px 5px 3px 49px">
+
+                        <div class="row no-padding">
+                            <div class="col-md-3">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Sum Insured</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field SumInsuredID must be a number." id="ddlSumInsured"
+                                        name="SumInsuredID">
+                                        <option value="">Sum Insured</option>
+                                        <option value="30">25000</option>
+                                        <option value="31">100000</option>
+                                        <option value="32">200000</option>
+                                        <option value="33">50000</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Plan</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field PlanID must be a number." id="ddlPlan" name="PlanID">
+                                        <option value="">Plan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Diagnosis Cover</label>
+                                    </div>
+                                    <select class="form-control" disabled="disabled" id="ddlDiagnosisCover"
+                                        name="DiagnosisCover">
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Quarantine Cover</label>
+
+                                    </div>
+                                    <select class="form-control" disabled="disabled" id="ddlPrimaryCover"
+                                        name="PrimaryCover">
+                                        <option value="">Quarantine Cover</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row no-padding">
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Travel Excl Cover</label>
+
+                                    </div>
+                                    <select class="form-control" disabled="disabled" id="ddlSecondaryCover"
+                                        name="SecondaryCover">
+                                        <option value="">Travel Excl Cover</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Any Pre-Existing Disease ?</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control" data-val="true"
+                                        data-val-number="The field PreExDisease must be a number." id="ddlPreExDisease"
+                                        name="PreExDisease">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4" id="dvDiseaseName" style="display:none">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Disease Name</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control validate[required]" id="txtDiseaseName" maxlength="250"
+                                        name="DiseaseName" type="text" value="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="active-class" style="color:white"><img src="/Image/Site/Forma 1-1.png" />&nbsp;&nbsp; Plan
+                        Details</p>
+                </div>
+                <div class="width-100 panel-body" style="background-color: #fff">
+                    <div style="margin:5px 5px 3px 49px">
+
+                        <div class="row no-padding">
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Plan Amount</label>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtPlanAmount" readonly>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>GST Amount</label>
+                                    </div>
+                                    <input name="" type="text" class="form-control" id="txtGSTAmount" readonly>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Total Plan Amount</label>
+                                    </div>
+                                    <input type="text" class="form-control" id="txtTotalPlanAmount" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row no-padding">
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Certificate Start Date</label>
+
+                                    </div>
+
+                                    <input class="form-control removeBackgroundcolor" data-val="true"
+                                        data-val-date="The field CoverStartDate must be a date."
+                                        data-val-required="The CoverStartDate field is required." id="txtCoverStartDate"
+                                        name="CoverStartDate" readonly="readonly" type="text" value="23/04/2020" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Certificate End Date</label>
+
+                                    </div>
+                                    <input class="form-control" data-val="true"
+                                        data-val-date="The field CoverEndDate must be a date." id="txtCoverEndDate"
+                                        name="CoverEndDate" readonly="readonly" type="text" value="" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Certificate Issue Date</label>
+
+                                    </div>
+                                    <input data-val="true" data-val-number="The field IssueByID must be a number."
+                                        data-val-required="The IssueByID field is required." id="IssueByID"
+                                        name="IssueByID" type="hidden" value="10" />
+                                    <input type="text" value='23/04/2020' class="form-control" id="txtissuedate"
+                                        readonly />
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4" style="display:none">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Balance Amount</label>
+                                    </div>
+                                    <input class="form-control" data-val="true"
+                                        data-val-number="The field TotalFloatPlanAmount must be a number."
+                                        id="txtTotalFloatPlanAmount" name="TotalFloatPlanAmount" readonly="readonly"
+                                        type="hidden" value="0" />
+                                    <input class="form-control" data-val="true"
+                                        data-val-number="The field TotalUsedPlanAmount must be a number."
+                                        data-val-required="The TotalUsedPlanAmount field is required."
+                                        id="txtTotalUsedPlanAmount" name="TotalUsedPlanAmount" readonly="readonly"
+                                        type="hidden" value="9440.00" />
+                                    <input class="form-control" data-val="true"
+                                        data-val-number="The field TotalBalanceAmount must be a number."
+                                        id="txtTotalBalanceAmount" name="TotalBalanceAmount" readonly="readonly"
+                                        type="text" value="0" />
+                                    <input class="form-control" id="hdnPACoverStartDate" name="PACoverStartDate"
+                                        readonly="readonly" type="hidden" value="" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="active-class" style="color:white"><img src="/Image/Site/Forma 1-3.png" />&nbsp;&nbsp;
+                        Custormer Details</p>
+                </div>
+                <div class="width-100 panel-body" style="background-color: #fff">
+                    <div style="margin:5px 5px 3px 49px">
+
+                        <div class="row no-padding">
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>First Name</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control validate[required]  validate[custom[name]]"
+                                        id="txtCustomerName" maxlength="25" name="CustomerName" type="text" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Middle Name</label>
+
+                                    </div>
+                                    <input class="form-control validate[custom[name]]" id="txtCustomerMiddleName"
+                                        maxlength="25" name="CustomerMiddleName" type="text" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Last Name</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control validate[required] validate[custom[name]]"
+                                        id="txtCustomerLastName" maxlength="25" name="CustomerLastName" type="text"
+                                        value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Email ID</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control validate[required] validate[custom[email]] maxSize[50]"
+                                        id="txtCustomerEmail" maxlength="50" name="CustomerEmail" type="text"
+                                        value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Mobile No</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input
+                                        class="form-control allow_only_numbers validate[required] validate[custom[integer],maxSize[10],minSize[10],custom[sumIsZero]] "
+                                        id="txtCustomerContact" maxlength="10" name="CustomerContact" type="text"
+                                        value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Insured Gender</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field InsuredGenderId must be a number."
+                                        id="ddlInsuredGender" name="InsuredGenderId">
+                                        <option value="">Insured Gender</option>
+                                        <option value="18">Male</option>
+                                        <option value="19">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Insured DOB</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control removeBackgroundcolor validate[required]" data-val="true"
+                                        data-val-date="The field InsuredDOB must be a date." id="txtInsureDOB"
+                                        name="InsuredDOB" readonly="readonly" type="text" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Nominee Name</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <input class="form-control validate[required]" id="txtNomineeName" maxlength="25"
+                                        name="NomineeName" type="text" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Nominee Gender</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field NomineeGenderId must be a number."
+                                        id="ddlNomineeGender" name="NomineeGenderId">
+                                        <option value="">Nominee Gender</option>
+                                        <option value="21">Male</option>
+                                        <option value="22">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Nominee DOB</label>
+
+                                    </div>
+                                    <input class="form-control removeBackgroundcolor " data-val="true"
+                                        data-val-date="The field NomineeDOB must be a date." id="txtNomineeDOB"
+                                        name="NomineeDOB" readonly="readonly" type="text" value="" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Nominee Relationship</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field NomineeRelationshipId must be a number."
+                                        id="ddlNomineeRelationship" name="NomineeRelationshipId">
+                                        <option value="">Nominee Relationship</option>
+                                        <option value="24">Father</option>
+                                        <option value="25">Mother</option>
+                                        <option value="26">Other</option>
+                                        <option value="27">Son</option>
+                                        <option value="28">Spouse</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Customer GSTIN Number</label>
+
+                                    </div>
+                                    <input class="form-control " id="txtGSTINNumber" maxlength="25" name="GSTINNumber"
+                                        type="text" value="" />
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <p class="active-class" style="color:white"><img src="/Image/Site/Forma 1-2.png" />&nbsp;&nbsp;
+                        Permanent Address</p>
+                </div>
+
+                <div class="width-100 panel-body" style="background-color: #fff">
+                    <div style="margin:5px 5px 3px 49px">
+
+                        <div class="row no-padding">
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>State</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field PermanentStateID must be a number."
+                                        id="ddlPermanentState" name="PermanentStateID">
+                                        <option value="">State</option>
+                                        <option value="1">ANDAMAN and NICOBAR</option>
+                                        <option value="2">ANDHRA PRADESH</option>
+                                        <option value="3">ARUNACHAL PRADESH</option>
+                                        <option value="4">ASSAM</option>
+                                        <option value="5">BIHAR</option>
+                                        <option value="6">CHANDIGARH</option>
+                                        <option value="7">CHHATTISGARH</option>
+                                        <option value="8">DADAR and NAGARA HAVELI</option>
+                                        <option value="9">DAMAN and DIU</option>
+                                        <option value="10">DELHI</option>
+                                        <option value="11">GOA</option>
+                                        <option value="12">GUJARAT</option>
+                                        <option value="15">HARYANA</option>
+                                        <option value="16">HIMACHAL PRADESH</option>
+                                        <option value="17">JAMMU and KASHMIR</option>
+                                        <option value="18">JHARKHAND</option>
+                                        <option value="19">KARNATAKA</option>
+                                        <option value="20">KERALA</option>
+                                        <option value="21">LAKSHADWEEP</option>
+                                        <option value="22">MADHYA PRADESH</option>
+                                        <option value="23">MAHARASHTRA</option>
+                                        <option value="24">MANIPUR</option>
+                                        <option value="25">MEGHALAYA</option>
+                                        <option value="26">MIZORAM</option>
+                                        <option value="27">NAGALAND</option>
+                                        <option value="29">ORISSA</option>
+                                        <option value="30">PONDICHERRY</option>
+                                        <option value="31">PUNJAB</option>
+                                        <option value="32">RAJASTHAN</option>
+                                        <option value="34">SIKKIM</option>
+                                        <option value="35">TAMIL NADU</option>
+                                        <option value="37">TELANGANA</option>
+                                        <option value="38">TRIPURA</option>
+                                        <option value="39">UTTAR PRADESH</option>
+                                        <option value="40">UTTARAKHAND</option>
+                                        <option value="41">WEST BENGAL</option>
+                                        <option value="42">ODISHA</option>
+                                        <option value="43">ODISHA RENAME</option>
+                                        <option value="44">Uttrakhand</option>
+                                        <option value="45">RAIGAD</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>City</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <select class="form-control validate[required]" data-val="true"
+                                        data-val-number="The field PermanentCityID must be a number."
+                                        id="ddlPermanentCity" name="PermanentCityID">
+                                        <option value="">City</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Address1</label>
+                                        <span class="mandatory">*</span>
+                                    </div>
+                                    <textarea class="form-control validate[required]" cols="20" id="txtPermanentAddress"
+                                        maxlength="100" name="PermanentAddress" rows="2">
+</textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label><span>&nbsp;</span></label>
+                                <div class="form-group">
+                                    <div>
+                                        <label>Address2</label>
+
+                                    </div>
+                                    <textarea class="form-control" cols="20" id="txtPermanentAddress2" maxlength="100"
+                                        name="PermanentAddress2" rows="2">
+</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <input id="hdnYearValidity" name="hdnYearValidity" type="hidden" value="0" /><input data-val="true"
+                data-val-number="The field Total_CD_Balance must be a number." id="Total_CD_Balance"
+                name="Total_CD_Balance" type="hidden" value="" /><input id="Hdn_UserName" name="UserName" type="hidden"
+                value="global.assure.mis@gmail.com" />
+            <div class="col-lg-12">
+                <div class="col-lg-12 col-sm-12 form-group text-center " style="display:none">
+                    <label for="Here" id="lblErrMsg">Here</label>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-12 col-sm-12 form-group text-center ">
+                    <input type="button" value="Submit" id="btnSaveTransaction" class="btn btn-primary" />
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-12 col-sm-12 form-group text-left" style="font-size:11px;">
+                    I hereby confirm that,
+                    <br />
+                    1. Neither me nor my any family member or close associate is suffering from COVID19 or quarantined/I
+                    or we have not met any COVID 19 affected person in last 15 days
+                    <br />
+                    2. I am not living with and sharing the same address as that of person(s) who is/were Diagnosed with
+                    COVID- 19 or Quarantined
+                    <br />
+                    3. Have Not travelled to international destination in 45 day immediately preceding the Certificate
+                    Period Start Date (This is not applicable for Platinum cover)
+                </div>
+            </div>
+        </form>
+
+        <script>
+
+            var Is_Pay_Now = false;
+
+            //$("#ddlPayment").on('change', function (e) {
+            //    var PaymentType = $('#ddlPayment').val();
+            //    switch (PaymentType) {
+            //        case '1':
+            //            $('.clschequeoption').show();
+            //            break;
+            //        case '2':
+            //            $('.clschequeoption').hide();
+            //            break;
+            //        default:
+            //            // code block
+            //    }
+
+
+            // })
+
+            function check_leapyear(currYear) {
+
+                var IsLeap = false;
+
+                if ((0 == currYear % 4) && (0 != currYear % 100) || (0 == currYear % 400)) {
+                    IsLeap = true;
+                }
+                else {
+                    IsLeap = false;
+                }
+
+                return IsLeap;
+            }
+
+            function setCoverEndDate(year) {
+                var yearValidity = 0;
+                yearValidity = Number(year);
+                var date = $('#txtCoverStartDate').val();
+                date = Date.parse(DDMMYYYY_TO_MMDDYYYY(date))
+                var currDate = new Date(date);
+                var currYear = currDate.getFullYear();
+                var currMonth = currDate.getMonth() + 1;
+                var CheckLeapYear = check_leapyear(currYear);
+                if (CheckLeapYear && currMonth > 2) {
+
+                    currDate.setDate((currDate.getDate() + (364 * year)));
+                }
+                else if (CheckLeapYear && currMonth <= 2) {
+
+                    currDate.setDate((currDate.getDate() + (365 * year)));
+                }
+                else {
+
+                    currDate.setDate((currDate.getDate() + (364 * year)));
+                }
+                var day = currDate.getDate();
+                var mont = currDate.getMonth() + 1;
+                var year = currDate.getFullYear();
+                if (day < 10) day = "0" + day;
+                if (mont < 10) mont = "0" + mont;
+                var newDate = day + "/" + mont + "/" + year;
+
+                $('#txtCoverEndDate').val(newDate);
+            }
+
+            $("#ddlBank").select2();
+
+            // location.reload(true);
+            jQuery("#TransactionForm").validationEngine();
+            $(document).ready(function () {
+
+                var PACoverDate = $('#hdnPACoverStartDate').val();
+
+                if (PACoverDate != '') {
+                    $('#txtCoverStartDate').val(PACoverDate);
+
+                    startDate = new Date(PACoverDate);
+                    var YearValidity = $('#hdnYearValidity').val();
+                    if (YearValidity != "0") {
+                        var year = 0;
+                        year = Number(YearValidity);
+                        var currYear = startDate.getFullYear();
+                        var currMonth = startDate.getMonth() + 1;
+                        var CheckLeapYear = check_leapyear(currYear);
+                        if (CheckLeapYear && currMonth > 2) {
+
+                            startDate.setDate((startDate.getDate() + (364 * year)));
+                        }
+                        else if (CheckLeapYear && currMonth <= 2) {
+
+                            startDate.setDate((startDate.getDate() + (365 * year)));
+                        }
+                        else {
+
+                            startDate.setDate((startDate.getDate() + (364 * year)));
+                        }
+                        var day = startDate.getDate();
+                        var mont = startDate.getMonth() + 1;
+                        var year = startDate.getFullYear();
+                        if (day < 10) day = "0" + day;
+                        if (mont < 10) mont = "0" + mont;
+                        var newDate = day + "/" + mont + "/" + year;
+                        $('#txtCoverEndDate').val(newDate);
+                    }
+
+
+                }
+                else {
+
+                    $("#txtCoverStartDate").datepicker({
+                        todayHighlight: true,
+                        format: 'dd/mm/yyyy',
+                        autoclose: true,
+                        startDate: new Date()
+                    }).on('changeDate', function (selected) {
+                        startDate = new Date(selected.date.valueOf());
+
+                        //var day = startDate.getDate();
+                        //var mont = startDate.getMonth() + 1;
+                        //var year = startDate.getFullYear() + 1;
+                        //if (day < 10) day = "0" + day;
+                        //if (mont < 10) mont = "0" + mont;
+                        //var newDate = day + "/" + mont + "/" + year;
+                        var YearValidity = $('#hdnYearValidity').val();
+                        if (YearValidity != "0") {
+                            var year = 0;
+                            year = Number(YearValidity);
+                            var currYear = startDate.getFullYear();
+                            var currMonth = startDate.getMonth() + 1;
+                            var CheckLeapYear = check_leapyear(currYear);
+                            if (CheckLeapYear && currMonth > 2) {
+
+                                startDate.setDate((startDate.getDate() + (364 * year)));
+                            }
+                            else if (CheckLeapYear && currMonth <= 2) {
+
+                                startDate.setDate((startDate.getDate() + (365 * year)));
+                            }
+                            else {
+
+                                startDate.setDate((startDate.getDate() + (364 * year)));
+                            }
+                            var day = startDate.getDate();
+                            var mont = startDate.getMonth() + 1;
+                            var year = startDate.getFullYear();
+                            if (day < 10) day = "0" + day;
+                            if (mont < 10) mont = "0" + mont;
+                            var newDate = day + "/" + mont + "/" + year;
+                            $('#txtCoverEndDate').val(newDate);
+                        }
+
+                    });
+
+                }
+
+
+                $('#ddlPayment').val('0');
+
+                $(".clsOnlineNowLater").hide();
+
+                $("#ddlProduct").each(function () {
+                    $('option', this).each(function () {
+                        if ($(this).text().toLowerCase() == "pc") {
+                            $(this).text("Private Car");
+                        }
+                        else if ($(this).text().toLowerCase() == "tw") {
+                            $(this).text("Two Wheeler");
+                        }
+                        else if ($(this).text().toLowerCase() == "cv") {
+                            $(this).text("Commercial Vehicle");
+                        }
+                        else if ($(this).text().toLowerCase() == "th") {
+                            $(this).text("Three Wheeler");
+                        }
+                        else if ($(this).text().toLowerCase() == "cl") {
+                            $(this).text("Pedal Cycle");
+                        }
+                    });
+                });
+
+
+                $(".spnRegistrationNo").hide();
+
+                $(".clsbankdetail").hide();
+
+                if ($("#IsChequePaymentTypeIntermediaryFalse").prop("checked")) {
+                    var PaymentType = $('#ddlPayment').val();
+                    //if (PaymentType == '1')
+                    $(".clschequeoption").show();
+                    if (PaymentType == '2') {
+                        $('#IsOnlinePayNowTrue').prop("checked", true);
+                        $('#IsOnlinePayNowFalse').prop("Disabled", true);
+                    }
+                }
+
+
+                //$(".clschequetype").hide();
+
+                ////////////////////////////// Payment Dropdown Change ////////////////////////////
+                $("#ddlTransactionType").on('change', function (e) {
+                    var val = $(this).val();
+                    var valprod = $("#ddlProduct").val();
+
+                    if (val == '6') {
+                        $(".spnRegistrationNo").show();
+                        $("#txtRegistrationNo").addClass("validate[required]");
+                    }
+                    else {
+                        $(".spnRegistrationNo").hide();
+                        $("#txtRegistrationNo").removeClass("validate[required]");
+                    }
+
+
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                /////////////////////////////////// DatePicker ///////////////////////////////////////
+
+
+
+
+
+
+                $("#txtChequeDate").datepicker({
+                    todayHighlight: true,
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                }).change(function () {
+                    $('.txtChequeDateformError').hide();
+                });
+
+                //$("#txtRegistrationDate").datepicker({
+                //    todayHighlight: true,
+                //    format: 'dd/mm/yyyy',
+                //    autoclose: true,
+                //})
+                /////////////////////////////////////////////////////////////////////////////////////
+
+                /////////////////////////////////// IsSingleChequeSinglePolicyOption Radio Button Change //////////////////////
+                $('.IsSingleChequeSinglePolicyOption').click(function () {
+                    var PaymentType = $('#ddlPayment').val();
+                    if ($("#chequeoptiontrue").prop("checked") && (PaymentType == '1' || PaymentType == '6')) {
+                        $(".clsbankdetail").show();
+                    }
+
+                    else {
+                        $(".clsbankdetail").hide();
+                        if ($("#chequeoptiontrue").prop("checked")) {
+                            $("#IsOnlinePayNowTrue").prop("checked", true);
+                            $("#IsOnlinePayNowTrue").prop("disabled", false);
+                            $("#IsOnlinePayNowFalse").prop("disabled", false);
+                        }
+                        else {
+                            $("#IsOnlinePayNowFalse").prop("checked", true);
+                            $("#IsOnlinePayNowTrue").prop("disabled", true);
+                            $("#IsOnlinePayNowFalse").prop("disabled", false);
+                        }
+                    }
+                });
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                /////////////////////////////////// IsChequePaymentTypeOption Radio Button Change //////////////////////
+                $('.IsChequePaymentTypeOption').click(function () {
+                    var PaymentType = $('#ddlPayment').val();
+                    if ($("#IsChequePaymentTypeIntermediaryTrue").prop("checked")) {
+                        $(".clsbankdetail").hide();
+                        $(".clschequeoption").show()
+                        $("#chequeoptionfalse").prop("checked", true);
+                        $("#IsOnlinePayNowFalse").prop("disabled", false);
+
+                    }
+                    else {
+                        if (PaymentType == '1' || PaymentType == '6')
+                            $(".clsbankdetail").show();
+                        $(".clschequeoption").hide();
+                    }
+                    if ($("#IsChequePaymentTypeIntermediaryFalse").prop("checked")) {
+                        $('#IsOnlinePayNowTrue').prop("checked", true);
+                        $('#IsOnlinePayNowFalse').prop("disabled", true);
+                    }
+
+                });
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+                ////////////////////////////// Payment Dropdown Change ////////////////////////////
+                $("#ddlPayment").on('change', function (e) {
+                    var val = $(this).val();
+                    if (val == '1' || val == '2' || val == '6') {
+                        $(".clschequetype").show();
+
+                        if ($("#IsChequeTypeAgentFalse").prop("checked")) {
+                            $(".clschequeno").show();
+                            $(".clschequeoption").hide();
+                        }
+                        else {
+                            $(".clschequeno").hide();
+                            $('.clsbankdetail').hide();
+                        }
+                        if (val == '2') {
+                            $(".clsOnlineNowLater").show();
+                            $(".clschequeno").hide();
+                            $(".clsbankdetail").hide();
+                        }
+                        else {
+                            //debugger;
+                            $(".clsOnlineNowLater").hide();
+                            if (($("#chequeoptiontrue").prop("checked") || $('#IsChequePaymentTypeIntermediaryFalse').prop('checked')) && (val == '1' || val == '6')) {
+                                $(".clsbankdetail").show();
+                            }
+                            else {
+                                $(".clsbankdetail").hide();
+                            }
+                            //  $(".clschequeoption").show();
+                            // $(".clsbankdetail").show();
+                        }
+
+                        if (val == '6') {
+                            $(".clsChequDetail").hide();
+                            $(".clsDDDetail").show();
+                        }
+                        else
+                            if (val == '1') {
+                                $(".clsChequDetail").show();
+                                $(".clsDDDetail").hide();
+                            }
+                    }
+                    else if (val == '7') {
+                        $(".clschequetype ").hide();
+                        $(".clschequeoption").hide();
+                        $(".clschequeno").hide();
+                    }
+                    else {
+                        $(".clschequetype").hide();
+                        $(".clschequeno").hide();
+                    }
+
+                    if (val == '5') {
+                        // $('#dvCheckPayment').hide();
+                        $('#dvCashDeposit').show();
+                    }
+                    else {
+                        // $('#dvCheckPayment').show();
+                        $('#dvCashDeposit').hide();
+                    }
+
+
+
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+                ///////////////////////////////////// IsSameAsPermanentAddress Checkbox Change //////////////////////////////////
+                $('#chkIsSameAsPermanentAddress').change(function () {
+                    var val = $(this).is(":checked");
+                    if (val) {
+                        $("#txtCommunicationAddress").val($("#txtPermanentAddress").val());
+                        $("#txtCommunicationAddress2").val($("#txtPermanentAddress2").val());
+                        $("#txtCommunicationAddress3").val($("#txtPermanentAddress3").val());
+                        $("#txtCommunicationLandmark").val($("#txtPermanentLandmark").val());
+
+                        $("#ddlCommunicationState").empty().append($('#ddlPermanentState').html());
+                        $("#ddlCommunicationCity").empty().append($('#ddlPermanentCity').html());
+
+                        $("#ddlCommunicationState").val($('#ddlPermanentState').val());
+                        $("#ddlCommunicationCity").val($('#ddlPermanentCity').val());
+
+                        $(".clsCommunicationAddress").prop("disabled", true);
+                    }
+                    else {
+                        $(".clsCommunicationAddress").prop("disabled", false);
+                    }
+                });
+                /////////////////////////////////////////////////////////////////////////////////////////////
+
+
+                ///////////////////////////////////// Permanent LOCATION DROPDOWN ///////////////////////////
+                $("#ddlPermanentState").on('change', function (e) {
+                    var IsSameAsPermanentAddress = $('#chkIsSameAsPermanentAddress').is(":checked");
+                    var val = $(this).val();
+
+                    var option = '<option value="">Select</option>';
+                    if (val == "") {
+                        $("#ddlPermanentCity").empty().append(option);
+                        if (IsSameAsPermanentAddress) {
+                            $("#ddlCommunicationCity").empty().append(option);
+                        }
+                    }
+                    else {
+                        var ajaxrequest = $.ajax({
+                            url: '/WebPortal/GetCityByStateID',
+                            type: "POST",
+                            datatype: "json",
+                            data: { StateID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result != null) {
+                                var option = '<option value="">Select</option>';
+                                for (var i = 0; i < result.length; i++) {
+                                    option += '<option value="' + result[i].Value + '">' + result[i].Text + '</option>';
+                                }
+                                $("#ddlPermanentCity").empty().append(option);
+
+                                if (IsSameAsPermanentAddress) {
+                                    $("#ddlCommunicationCity").empty().append(option);
+                                    $("#ddlCommunicationState").val(val);
+                                }
+                            }
+                            else {
+
+                            }
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+
+                $("#ddlPermanentCity").on('change', function (e) {
+                    var IsSameAsPermanentAddress = $('#chkIsSameAsPermanentAddress').is(":checked");
+                    var val = $(this).val();
+                    if (val == "") {
+                        if (IsSameAsPermanentAddress) {
+                            $("#ddlCommunicationCity").val("");
+                        }
+                    }
+                    else {
+                        if (IsSameAsPermanentAddress) {
+                            $("#ddlCommunicationCity").html($("#ddlPermanentCity").html());
+                            $("#ddlCommunicationCity").val(val);
+                        }
+                    }
+                });
+
+                //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                ///////////////////////////////////// COMMUNICATION LOCATION DROPDOWN ///////////////////////////
+                $("#ddlCommunicationState").on('change', function (e) {
+                    var IsSameAsPermanentAddress = $('#chkIsSameAsPermanentAddress').is(":checked");
+                    var val = $(this).val();
+                    var option = '<option value="">Select</option>';
+                    if (val == "") {
+                        $("#ddlCommunicationCity").empty().append(option);
+                    }
+                    else {
+                        var ajaxrequest = $.ajax({
+                            url: '/Home/GetCityByStateID',
+                            type: "POST",
+                            datatype: "json",
+                            data: { StateID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result != null) {
+                                var option = '<option value="">Select</option>';
+                                for (var i = 0; i < result.length; i++) {
+                                    option += '<option value="' + result[i].Value + '">' + result[i].Text + '</option>';
+                                }
+                                $("#ddlCommunicationCity").empty().append(option);
+                            }
+                            else {
+
+                            }
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+                //////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+                ////////////////////////////// Product Dropdown Change ////////////////////////////
+                $("#ddlProduct").on('change', function (e) {
+                    $("#txtSegment").val('');
+                    var val = $(this).val();
+                    var option = '<option value="">Select</option>';
+                    if (val == "") {
+                        $("#ddlPlan").empty().append(option);
+                        $("#ddlMake").empty().append(option);
+                        $("#ddlModel").empty().append(option);
+                        $("#txtPlanAmount").val("");
+                        $("#txtGSTAmount").val("");
+                        $("#txtTotalPlanAmount").val("");
+                    }
+                    else {
+                        var ajaxrequest = $.ajax({
+                            url: '/Home/GetMakeByProductIDForUser',
+                            type: "POST",
+                            datatype: "json",
+                            data: { ProductID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result != null) {
+
+                                $("#ddlModel").empty().append('<option value="">Select</option>');
+                                $("#txtPlanAmount").val("");
+                                $("#txtGSTAmount").val("");
+                                $("#txtTotalPlanAmount").val("");
+
+                                var optionSelect = '<option value="">Select</option>';
+                                var option = "";
+                                if (result.makelist != null) {
+                                    option = "";
+                                    $("#ddlMake").empty().append(optionSelect);
+                                    for (var i = 0; i < result.makelist.length; i++) {
+                                        option += '<option value="' + result.makelist[i].Value + '">' + result.makelist[i].Text + '</option>';
+                                    }
+                                    $("#ddlMake").append(option);
+                                }
+
+                                if (result.planlist != null) {
+                                    option = "";
+                                    $("#ddlPlan").empty().append(optionSelect);
+                                    for (var i = 0; i < result.planlist.length; i++) {
+                                        option += '<option value="' + result.planlist[i].Value + '">' + result.planlist[i].Text + '</option>';
+                                    }
+                                    $("#ddlPlan").append(option);
+                                }
+                            }
+                            else {
+
+                            }
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+                ////////////////////////////// Make Dropdown Change ////////////////////////////
+                $("#ddlMake").on('change', function (e) {
+                    var val = $(this).val();
+                    var option = '<option value="">Select</option>';
+                    $("#txtSegment").val('');
+                    if (val == "") {
+                        $("#ddlModel").empty().append(option);
+                    }
+                    else {
+                        var ajaxrequest = $.ajax({
+                            url: '/Home/GetModelByMakeIDForUser',
+                            type: "POST",
+                            datatype: "json",
+                            data: { MakeID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result != null) {
+                                var optionSelect = '<option value="">Select</option>';
+                                var option = "";
+                                if (result.modellist != null) {
+                                    option = "";
+                                    $("#ddlModel").empty().append('<option value="">Select</option>');
+                                    for (var i = 0; i < result.modellist.length; i++) {
+                                        option += '<option value="' + result.modellist[i].Value + '">' + result.modellist[i].Text + '</option>';
+                                    }
+                                    $("#ddlModel").append(option);
+                                }
+                            }
+                            else {
+
+                            }
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+                ////////////////////////////// Model Dropdown Change ////////////////////////////
+                $("#ddlModel").on('change', function (e) {
+                    $("#txtSegment").val('');
+                    var val = $(this).val();
+                    if (val == "") {
+
+                    }
+                    else {
+                        var ajaxrequest = $.ajax({
+                            url: '/Home/GetSegmentByModel',
+                            type: "POST",
+                            datatype: "json",
+                            data: { ModelID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result != null) {
+
+                                if (result.Segment != null) {
+                                    $("#txtSegment").val(result.Segment);
+                                }
+                            }
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+                ////////////////////////////// Plan Dropdown Change ////////////////////////////
+                $("#ddlPlan").on('change', function (e) {
+
+                    var SilverPlansID = ["12808", "12809", "12810", "12824", "12833", "12834", "12835", "12836", "12837", "12848", "12849", "12850", "12851", "12852", "12864", "12863", "12862", "12861", "12908", "12909", "12910", "12911"];
+                    var GoldPlansID = ["12802", "12803", "12804", "12811", "12812", "12816", "12817", "12818", "12822", "12825", "12826", "12827", "12828", "12838", "12856", "12855", "12854", "12853", "12900", "12901", "12902", "12903"];
+                    var PlatinumPlansID = ["12805", "12806", "12807", "12819", "12820", "12821", "12823", "12829", "12830", "12831", "12832", "12839", "12844", "12845", "12846", "12847", "12857", "12858", "12859", "12860", "12904", "12905", "12906", "12907"];
+                    var PalladiumPlansID = ["12865", "12866", "12867", "12868"];
+
+                    var val = $(this).val();
+                    if (val == "") {
+                        $("#txtPlanAmount").val("");
+                    }
+                    else {
+
+                        if (SilverPlansID.includes(val)) {
+
+                            $("#ddlPrimaryCover").val(0);
+                            $("#ddlSecondaryCover").val(0);
+                        }
+                        else if (GoldPlansID.includes(val)) {
+
+                            $("#ddlPrimaryCover").val(1);
+                            $("#ddlSecondaryCover").val(0);
+                        }
+                        else if (PlatinumPlansID.includes(val)) {
+
+                            $("#ddlPrimaryCover").val(1);
+                            $("#ddlSecondaryCover").val(1);
+                        }
+                        else if (PalladiumPlansID.includes(val)) {
+
+                            $("#ddlPrimaryCover").val(1);
+                            $("#ddlSecondaryCover").val(1);
+                        }
+
+                        var ajaxrequest = $.ajax({
+                            url: '/WebPortal/GetPlanAmountByPlanID',
+                            type: "POST",
+                            datatype: "json",
+                            data: { PlanID: val },
+                            async: false,
+                            beforeSend: function () {
+                                $("#LoadingImage").show();
+                            }
+                        });
+                        ajaxrequest.done(function (result) {
+                            if (result.message == 'Success') {
+                                $("#txtPlanAmount").val(result.Amount);
+                                $("#txtGSTAmount").val(result.GST);
+                                $("#txtTotalPlanAmount").val(result.Total);
+                                $('#hdnYearValidity').val(result.Year);
+                                setCoverEndDate(result.Year);
+
+                            }
+                            else {
+                                $("#txtPlanAmount").val("");
+                                $("#txtGSTAmount").val("");
+                                $("#txtTotalPlanAmount").val("");
+                            }
+
+
+                        });
+                        ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus + ': ' + errorThrown);
+                        });
+                    }
+                });
+                ///////////////////////////////////////////////////////////////////////////////////////
+
+
+                ///////////////////////////////////// Submit /////////////////////////////////////////
+                $("#btnSaveTransaction").click(function () {
+
+                    var valid = $("#TransactionForm").validationEngine('validate');
+                    if (valid) {
+                        var chequeValidationMessage = ChequeValidation();
+                        var payOption = ($('#ddlPayment').val() == '0')
+
+                        if (payOption == 0 || payOption == '0') {
+                            if (chequeValidationMessage == "") {
+
+                                $.ajax({
+                                    url: '/WebPortal/SaveIssueCovidCertificate',
+                                    data: $('#TransactionForm').serialize(),
+                                    datatype: 'json',
+                                    type: "POST",
+                                    beforeSend: function () {
+                                        $("#LoadingImage").show();
+                                    },
+                                    success: function (result) {
+
+                                        if (result.lblerrmsg != "Insured DOB Is Mandatory Field") {
+
+                                            if (result.lblerrmsg != "Insured DOB is Not Eligible for this Policy") {
+
+                                                if (result.status == 'Success') {
+                                                    var path = "";
+                                                    var message = "";
+
+                                                    var paymentreftag = "";
+
+                                                    if (result.paymentrefno != null && result.paymentrefno != "") {
+                                                        paymentreftag = "Payment Reference Number : <strong>" + result.paymentrefno + "</strong><br/>";
+                                                    }
+
+                                                    if (result.path != null && result.path != "") {
+                                                        path = result.path.replace("\\", "/");
+                                                        path = path.replace("~", "../..");
+                                                    }
+
+                                                    if (path != "") {
+                                                        var anchor = "<a href='" + path + "' target='_blank'>Click Here</a>";
+                                                        message = "Certificate Issued Successfully. <br/> Certification Number : <strong>" + result.certificateno + "</strong><br/>" + paymentreftag + " Download OR Print Certificate : " + anchor;
+                                                    }
+                                                    else {
+                                                        message = "Certificate Issued Successfully. <br/> Certification Number : <strong>" + result.certificateno + "</strong><br/>" + paymentreftag + " Certificate Not Generated Yet. To Download Certificate, Go To Download Menu..";
+                                                    }
+
+                                                    if (result.IsPayNow) {
+                                                        if (result.vPayResponse.Flag) {
+                                                            window.location.href = result.vPayResponse.vPayTransactionURL;
+                                                        }
+                                                        else {
+                                                            message = message + "<br/> " + result.vPayResponse.Response;
+                                                            message = message + "<br/> Sorry!..Unable to process the payment request."
+                                                        }
+                                                    }
+
+                                                    //else {
+
+                                                    //    BootstrapDialog.show({
+                                                    //        type: BootstrapDialog.TYPE_SUCCESS,
+                                                    //        draggable: true,
+                                                    //        closable: false,
+                                                    //        title: "Success",
+                                                    //        message: message,
+                                                    //        buttons: [{
+                                                    //            label: 'OK',
+                                                    //            action: function (dialog) {
+                                                    //                window.location.href = "../../Home/IssueCovidCertificate";
+                                                    //                dialog.close();
+                                                    //            }
+                                                    //        }]
+                                                    //    });
+                                                    //}
+                                                }
+                                                else {
+                                                    AlertMessage("//Please Try Again", "5000", "fail");
+                                                }
+                                            }
+                                            else {
+                                                AlertMessage("//Insured DOB is Not Eligible for this Policy", "5000", "fail");
+                                            }
+                                        }
+                                        else {
+                                            AlertMessage("//Insured DOB Is Mandatory Field", "5000", "fail");
+                                        }
+                                    }
+                                });
+                            }
+
+                            else {
+
+                                AlertMessage("//" + chequeValidationMessage, "5000", "fail");
+                            }
+                        }
+                        else {
+                            AlertMessage("// Please select Payment option", "5000", "fail");
+                        }
+
+
+                    }
+                    else {
+                        $("#TransactionForm").validationEngine('validate');
+                    }
+                });
+
+                //////////////////////////////////////////////////////////////////////////////////////
+
+            });
+
+
+            function ChequeValidation() {
+                var message = "";
+
+                var totalBalanceAmountValue = $("#txtTotalBalanceAmount").val();
+                var planAmountValue = $("#txtTotalPlanAmount").val();
+                var totalBalanceAmount = 0;
+                var planAmount = 0;
+
+                if (totalBalanceAmountValue != null && totalBalanceAmountValue != "") {
+                    totalBalanceAmount = parseFloat(totalBalanceAmountValue);
+                }
+
+                if (planAmountValue != null && planAmountValue != "") {
+                    planAmount = parseFloat(planAmountValue);
+                }
+                var payment = $("#ddlPayment").val();
+
+
+
+
+                var isSingleChequeMultiplePolicy = false;
+                var isPaymentTypeIntermidiary = $("#IsChequePaymentTypeIntermediaryTrue").prop("checked");
+                if (isPaymentTypeIntermidiary) {
+                    isSingleChequeMultiplePolicy = $("#chequeoptionfalse").prop("checked");
+                }
+
+                if (planAmount > totalBalanceAmount && isPaymentTypeIntermidiary) {
+                    message = "Balance amount is not sufficient."
+                }
+
+
+                if (payment == '1') {
+                    if (isSingleChequeMultiplePolicy == false) {
+                        var certificateStartDate = $("#txtCoverStartDate").val();
+                        var chequeDate = $("#txtChequeDate").val();
+                        var chequeAmountValue = $("#txtChequeAmount").val();
+
+                        var chequeAmount = 0;
+
+                        if (chequeAmountValue != null && chequeAmountValue != "") {
+                            chequeAmount = parseFloat(chequeAmountValue);
+                        }
+
+
+                        if (Date.parse(DDMMYYYY_TO_MMDDYYYY(chequeDate)) > Date.parse(DDMMYYYY_TO_MMDDYYYY(certificateStartDate))) {
+                            if (message == "") {
+                                message = "Cheque Date should be less or equal to Certificate Start Date.";
+                            }
+                            else {
+                                message = message + "<br/> Cheque Date should be less or equal to Certificate Start Date.";
+                            }
+                        }
+
+                        if (chequeAmount < planAmount) {
+                            if (message == "") {
+                                message = "Cheque Amount can not be less than \"Total Plan Amount\".";
+                            }
+                            else {
+                                message = message + "<br/> Cheque Amount can not be less than \"Total Plan Amount\".";
+                            }
+                        }
+
+                    }
+                }
+
+                var TotalCDBalance = $('#Total_CD_Balance').val();
+                var isSingleMultiplePolicy = $("#chequeoptionfalse").prop("checked");
+                if ((payment == '5' && planAmount > TotalCDBalance) && !isSingleMultiplePolicy) {
+                    message = "Cash Deposit balance amount is not sufficient."
+                }
+
+
+
+                return message;
+            }
+
+
+            function DDMMYYYY_TO_MMDDYYYY(DDMMYYYY) {
+                var splitDate = DDMMYYYY.split('/');
+                var MMDDYYYY = splitDate[1] + "/" + splitDate[0] + "/" + splitDate[2];
+                return MMDDYYYY;
+            }
+
+            ///////////////////////////////////// ddlPreExDisease Change /////////////////////////////////////////
+            $("#ddlPreExDisease").on('change', function (e) {
+
+                $("#txtDiseaseName").val("");
+
+                var val = $(this).val();
+                var ddlPreExDisease = document.getElementById("dvDiseaseName");
+                if (val == "1") {
+                    ddlPreExDisease.style.display = "block";
+                }
+                else {
+                    ddlPreExDisease.style.display = "none";
+                }
+            });
+            //////////////////////////////////////////////////////////////////////////////////////
+
+
+            ////////////////////////////// SumInsured Dropdown Change ////////////////////////////
+            $("#ddlSumInsured").on('change', function (e) {
+
+                var PrimOption = 'Quarantine Cover';
+                var SecOption = 'Travel Excl Cover';
+
+                $("#ddlPrimaryCover").val(PrimOption);
+                $("#ddlSecondaryCover").val(SecOption);
+
+                var PId = 11;
+                var val = $(this).val();
+
+                var option = '<option value="">Select</option>';
+                if (val == "") {
+                    $("#ddlPlan").empty().append(option);
+                    $("#txtPlanAmount").val("");
+                    $("#txtGSTAmount").val("");
+                    $("#txtTotalPlanAmount").val("");
+                }
+                else {
+                    var ajaxrequest = $.ajax({
+
+                        url: '/WebPortal/GetPlanByProductIDAndSumInsIDForUser',
+                        type: "POST",
+                        datatype: "json",
+                        data: { ProductID: PId, SumInsID: val },
+                        async: false,
+                        beforeSend: function () {
+                            $("#LoadingImage").show();
+                        }
+                    });
+                    ajaxrequest.done(function (result) {
+                        if (result != null) {
+
+                            $("#txtPlanAmount").val("");
+                            $("#txtGSTAmount").val("");
+                            $("#txtTotalPlanAmount").val("");
+
+                            var optionSelect = '<option value="">Select</option>';
+                            var option = "";
+                            if (result.planlist != null) {
+                                option = "";
+                                $("#ddlPlan").empty().append(optionSelect);
+                                for (var i = 0; i < result.planlist.length; i++) {
+                                    option += '<option value="' + result.planlist[i].Value + '">' + result.planlist[i].Text + '</option>';
+                                }
+                                $("#ddlPlan").append(option);
+                            }
+                        }
+                        else {
+
+                        }
+                    });
+                    ajaxrequest.fail(function (jqXHR, textStatus, errorThrown) {
+                        alert(textStatus + ': ' + errorThrown);
+                    });
+                }
+            });
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+            $("#txtInsureDOB").datepicker({
+                todayHighlight: true,
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+            }).change(function () {
+                $('.txtChequeDateformError').hide();
+            });
+
+            $("#txtNomineeDOB").datepicker({
+                todayHighlight: true,
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+            }).change(function () {
+                $('.txtChequeDateformError').hide();
+            });
+
+        </script>
+        <div id="divTransactionResult"></div>
+        <footer></footer>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            var windowheight = $(window).height();
+            var windowinnerheight = window.innerHeight;
+
+            $("body").css("min-height", windowinnerheight);
+
+            $(document).ajaxStart(function () {
+                $("#LoadingImage").show();
+            });
+
+            $(document).ajaxStop(function () {
+                $("#LoadingImage").hide();
+            });
+
+            $(document).ajaxComplete(function (event, jqXHR, settings) {
+                if (jqXHR.status == 789) {
+                    if (jqXHR.statusText != "" && jqXHR.statusText != "error") {
+                        alert("Unknown Error :" + jqXHR.statusText);
+                    }
+                    else {
+                        alert("Some Error has Occurred in the system. Please contact administrator ");
+                    }
+                }
+            });
+
+            $(document).ajaxError(function (e, xhr) {
+                $("#LoadingImage").hide();
+                if (xhr.status == 789) {
+                    if (xhr.statusText != "" && xhr.statusText != "error") {
+                        alert("Unknown Error :" + xhr.statusText);
+                    }
+                    else {
+                        alert("Some Error has Occurred in the system. Please contact administrator ");
+                    }
+                } else if (xhr.status == 401) {
+                    var types = [BootstrapDialog.TYPE_DANGER];
+
+                    $.each(types, function (index, type) {
+                        BootstrapDialog.show({
+                            message: 'You have been logged out because of Inactivity. Please login again.',
+                            buttons: [{
+                                label: 'Go to Login Page',
+                                cssClass: 'btn-primary',
+                                action: function (dialogItself) {
+                                    window.location = "/Login/ProviderLogin";
+                                }
+                            }]
+                        });
+                    });
+
+                } else if (xhr.status == 403) {
+                    alert("Unauthoried Access. Please login again.");
+
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
